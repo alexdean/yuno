@@ -1,3 +1,5 @@
 Simple PHP script for building 'Y U NO' images dynamically.
 
 Customize config.php as needed to suit your situation.
+
+If you like Hubot (and who doesn't), add this to your bot with https://github.com/github/hubot-scripts/blob/master/src/scripts/yuno.coffee.
