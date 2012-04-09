@@ -10,7 +10,7 @@ function yuno_auth($token) {
 
 // generate a unique id for this string. Should be usable as a file name.
 function yuno_id($string) {
-  return strtolower(preg_replace('/[^a-zA-Z0-9]/', '-', $string)) . sha1($string);
+  return strtolower(preg_replace('/[^a-zA-Z0-9]/', '-', $string)) .'-'. sha1($string);
 }
 
 // where will the given file be stored?
