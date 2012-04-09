@@ -1,0 +1,25 @@
+<?php
+// This 'config' file implements functions which are used by the script.
+// You can change them to whatever behavior works for you.
+
+
+// implement some method of validating the auth token supplied in a request
+function yuno_auth($token) {
+  return true;
+}
+
+// generate a unique id for this string. Should be usable as a file name.
+function yuno_id($string) {
+  return strtolower(preg_replace('/[^a-zA-Z0-9]/', '-', $string)) . sha1($string);
+}
+
+// where will the given file be stored?
+function yuno_path($id) {
+  return "/var/www/www.yoursite.com/public_html/yuno/out/$id.jpg";
+}
+
+// what url can be used to access this id?
+function yuno_url($id) {
+  return "http://www.yoursite.com/yuno/out/".urlencode($id).".jpg";
+}
+?>
