@@ -7,7 +7,7 @@ if (!extension_loaded('imagick')) {
   exit;
 }
 
-$token = isset($_GET['auth']) ? $_GET['auth'] : null;
+$token = isset($_GET['auth']) ? urldecode($_GET['auth']) : null;
 if (!yuno_auth($token)) {
   header("HTTP/1.1 403 Forbidden");
   echo "Invalid auth token.";
@@ -27,8 +27,8 @@ class YUNoText extends ImagickDraw {
 }
 
 $image = new Imagick('yuno.jpg');
-$line1 = strtoupper(trim($_GET['name']));
-$line2 = 'Y U NO '.strtoupper(trim($_GET['action']));
+$line1 = strtoupper(trim(urldecode($_GET['name'])));
+$line2 = 'Y U NO '.strtoupper(trim(urldecode($_GET['action'])));
 $id = yuno_id($line1.' '.$line2);
 
 if (file_exists(yuno_path($id))) {
